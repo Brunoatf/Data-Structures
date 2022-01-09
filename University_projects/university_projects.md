@@ -1,4 +1,4 @@
-# University Projects
+# University Projects in Data Structures
 
 During the second semester of 2021 i was assigned 17 short coding projects which composed part of my grades in the Data Structures course (MC202) at UNICAMP. This folder contains all the code i wrote in that context. 
 
