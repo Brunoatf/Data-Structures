@@ -1,2 +1,2 @@
-# Data_structures
-This repository is intended to keep my implementations of the data structures i have studied during the second semester of 2021.
+# Data Structures
+This repository is intended to keep the code i have written while studying Data Structures.
