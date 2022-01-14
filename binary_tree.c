@@ -1,9 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef struct node {
 
     int data;
-    struct no * left, * right;
+    struct node * left, * right;
 
 } node;
 
@@ -63,6 +64,33 @@ int height(p_node root) {
     return 1 + (h_left > h_right ? h_left : h_right); //height is equal to 1 + the largest height found in the subtrees
 }
 
+p_node insert(p_node root, int key) {
+
+    //Inserts a node with the key value in a binary search tree and returns the root of the new tree
+
+    p_node new;
+
+    if (root == NULL) { //If we reached a leaf of the tree:
+
+        new = malloc(sizeof(node)); 
+        new->left = new->right = NULL;
+        new->data = key;
+
+        return new; //we return the new node. If the tree was empty, the new node will be the root
+    }
+
+    //If we still did not reach a leaf, the function will find the position of the new node and create it:
+
+    if (key < root->data) {
+        root->left = insert(root->left, key); 
+    }
+    else {
+        root->right = insert(root->right, key);
+    }
+
+    return root; //the root of the tree is returned as it remains the same
+}
+
 //Depth-first searches:
 
 void pre_order(p_node root) {
@@ -92,7 +120,6 @@ void inorder(p_node root) {
 
         inorder(root->left); //firstly, we print the left subtree
         printf("%d ", root->data); //then, we print the root
-        inordem(root->right); //and finally, the right subtree
+        inorder(root->right); //and finally, the right subtree
     }
 }
-
